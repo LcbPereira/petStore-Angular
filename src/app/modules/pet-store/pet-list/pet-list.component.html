@@ -1,6 +1,6 @@
-<div>
-    <p>Name: {{dog.name}}</p>
-    <p>Id: {{dog.id}}</p>
-    <p>Raça: {{dog.race}}</p>
-    <p>Preço: {{dog.price}} €</p>
+<div *ngFor="let pet of pets">
+    <p>Name: {{pet.name}}</p>
+    <p>Id: {{pet.id}}</p>
+    <p>Raça: {{pet.race}}</p>
+    <p>Preço: {{pet.price}} €</p>
 </div>

@@ -7,7 +7,7 @@ import { PetListComponent } from './pet-list/pet-list.component';
 @NgModule({
   declarations: [PetListComponent],
   imports: [
-    CommonModule
+    CommonModule 
   ],
   exports: [
     PetListComponent

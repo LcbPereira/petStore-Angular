@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pet } from '../pet';
+import { PetProxyService } from '../pet-proxy.service';
 
 @Component({
   selector: 'app-pet-list',
@@ -8,16 +9,32 @@ import { Pet } from '../pet';
 })
 export class PetListComponent implements OnInit {
 
-  dog:Pet = new Pet({
-    id: 1234,
-    name: 'Panpuças',
-    price: 120.5,
-    race: 'Beagle'
-  });
+  pets:Pet[] = [];
 
-  constructor() { }
+  constructor(private _petProxy: PetProxyService) { }
 
   ngOnInit() {
+    /*this.pets.push(new Pet({
+      id: 1234,
+      name: 'Panpuças',
+      price: 120.50,
+      race: 'Beagle'
+    }));
+    this.pets.push(new Pet({
+      id: 1235,
+      name: 'Dentadas',
+      price: 100.50,
+      race: 'Chihuahua'
+    }));
+    this.pets.push(new Pet({
+      id: 1234,
+      name: 'Snoope',
+      price: 90.00,
+      race: 'Dalmata'
+    }));*/
+    this._petProxy.getPets().subscribe((pets:Pet[]) => {
+      this.pets = pets;
+    })
   }
 
 }
